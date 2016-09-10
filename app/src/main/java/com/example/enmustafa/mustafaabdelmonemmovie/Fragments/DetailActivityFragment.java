@@ -41,7 +41,8 @@ public class DetailActivityFragment extends Fragment {
     MovieDB data;
     ArrayList<MovieDB> review_data, Trailer_data;
     ImageView panner, poster, star;
-    TextView overview, release_date, vote_average;
+    ///////
+    TextView overview, release_date, vote_average ,movietitle;
     RecyclerView Review_list, Trailer_list;
     Favorite_data favorite;
 
@@ -72,6 +73,9 @@ public class DetailActivityFragment extends Fragment {
         release_date = (TextView) rootview.findViewById(R.id.release_date);
         vote_average = (TextView) rootview.findViewById(R.id.vote_average);
         star = (ImageView) rootview.findViewById(R.id.star);
+////////////////
+        movietitle = (TextView) rootview.findViewById(R.id.movietitle);
+
         favorite = new Favorite_data(getActivity());
         star.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +129,9 @@ public class DetailActivityFragment extends Fragment {
                     overview.setText(data.getOverview());
                     release_date.setText(data.getRelease_date());
                     vote_average.setText(data.getVote_average() + "");
+///////////////////////////
+                    movietitle.setText(data.getTitle());
+
                 }
             }
         }, new Response.ErrorListener() {
